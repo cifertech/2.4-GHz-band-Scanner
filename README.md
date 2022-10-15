@@ -1,13 +1,144 @@
-# 2.4-GHz-band-Scanner
-In this project, we will build a 2.4GHz Wlan scanner using the nRF24L01 radio board. In this project, the output delivers all the interference and information in the scanned area in the form of ASCII codes. In the project of making  this scanner, we will use Arduino Nano as a processor. In the second part of this project, we will add an OLED display and display the scanned values ​​in graphs and graphs. With the nRF24 module, we can scan and view the entire 2.4GHz network. This helps us to check the status of the signals in the network.
+<div align="center">
 
-### nRF24L01
-This module is a transceiver, meaning it does both send and receive. These modules are very cheap on price with small size, the operating voltage of this module is from 1.9 to 3.6 volts, MOSI, MISO and SCK pins are the SPI pins of the module. Must be connected to SPI protocol pins in Arduino. The CSN and CE pins are for setting the module to active mode and switching between command mode and data transfer. These two pins can be attached to any digital pin on the Arduino. The IRQ pin is an interrupt pin and does not need to be connected.
+  <img src="https://user-images.githubusercontent.com/62047147/195847997-97553030-3b79-4643-9f2c-1f04bba6b989.png" alt="logo" width="100" height="auto" />
+  <h1>2.4GHz band Scanner</h1>
+  
+  <p>
+    Scan 2.4Ghz Band with nRF24
+  </p>
+  
+  
+<!-- Badges -->
 
-### Interference in the 2.4 GHz network band
-There are many devices that operate in the 2.4GHz range, such as; Telephone, Bluetooth, WiFi, car alarm, microwave are all in this range that with this project we will be able to measure and display these values. It is not usually very difficult to find interference. Products are coming to market that act as spectrum analyzers and use a standard USB interface to a laptop, meaning that the interference source can be easily used with an antenna to find interference.
+<a href="https://github.com/cifertech/2.4-GHz-band-Scanner" title="Go to GitHub repo"><img src="https://img.shields.io/static/v1?label=cifertech&message=2.4-GHz-band-Scanner&color=white&logo=github" alt="cifertech - 2.4-GHz-band-Scanner"></a>
+<a href="https://github.com/cifertech/2.4-GHz-band-Scanner"><img src="https://img.shields.io/github/stars/cifertech/2.4-GHz-band-Scanner?style=social" alt="stars - 2.4-GHz-band-Scanner"></a>
+<a href="https://github.com/cifertech/2.4-GHz-band-Scanner"><img src="https://img.shields.io/github/forks/cifertech/2.4-GHz-band-Scanner?style=social" alt="forks - 2.4-GHz-band-Scanner"></a>
+   
+<h4>
+    <a href="https://twitter.com/cifertech1">TWITTER</a>
+  <span> · </span>
+    <a href="https://www.instagram.com/cifertech/">INSTAGRAM</a>
+  <span> · </span>
+    <a href="https://www.youtube.com/c/cifertech">YOUTUBE</a>
+  <span> · </span>
+    <a href="https://cifertech.net/">WEBSITE</a>
+  </h4>
+</div>
 
-### Project working method
-The activity of the nRF24 RF radio board is transmitted to the Arduino board via the serial interface and displays any type of activity in ASCII code. Domains are displayed in different channels with the help of a simple mapping. In this project, the 2.4GHz network scanner even shows the interference of microwaves and wireless cameras. Of course, you may be wondering what is the difference between this scanner and packet monitors ?! In response, I have to mention that in the monitor pack, it only monitors the 14 channels available for WiFi networks, but in this project, we can detect and actually see any frequency in the 2.4 range. In the second part, we will deal with this issue more. In the following, we will display these values ​​in the form of graphs using the OLED display. The graph values ​​are based on the nRF power consumption at the moment of scanning, which in this scenario is directly related to the input data. The light emitting diode (OLED) display that we will use in this tutorial is the SSD1306, a 0.96-inch monochrome display with 128.64 pixels as shown in the figure below. The OLED display does not require backlighting, which results in a very good contrast in dark environments. Also, its pixels consume energy only when turned on, so the OLED screen consumes less power than other monitors.
+<br />
 
-### Full Tutorial at http://cifertech.net/how-to-make-2-4-ghz-band-scanner-with-nrf24l01/
+<!-- Table of Contents -->
+# :notebook_with_decorative_cover: Table of Contents
+
+- [About the Project](#star2-about-the-project)
+  * [Pictures](#camera-Pictures)
+  * [Features](#dart-features)
+- [Getting Started](#toolbox-getting-started)
+  * [Schematic](#electric_plug-Schematic)
+  * [Installation](#gear-installation)
+- [Usage](#eyes-usage)
+- [Contributing](#wave-contributing)
+- [License](#warning-license)
+- [Contact](#handshake-contact)
+
+  
+
+<!-- About the Project -->
+## :star2: About the Project
+In this project, we will build a 2.4GHz Wlan scanner using the nRF24L01 radio board. In this project, the output delivers all the interference and information in the scanned area in the form of ASCII codes. In the project of making  this scanner, we will use Arduino Nano as a processor. In the second part of this project, we will add an OLED display and display the scanned values in graphs and graphs. With the nRF24 module, we can scan and view the entire 2.4GHz network. This helps us to check the status of the signals in the network.
+
+
+<!-- Pictures -->
+### :camera: Pictures
+
+<div align="center"> 
+  <img src="https://user-images.githubusercontent.com/62047147/195984607-278ada2a-f733-4e01-8042-c0e8ac711ee9.jpg" alt="screenshot" />
+</div>
+
+
+<!-- Features -->
+### :dart: Features
+
+- Scan 2.4Ghz band
+- Show all the Data in Graphs
+
+<!-- Getting Started -->
+## 	:toolbox: Getting Started
+
+We will use Arduino Nano as a processor. and we will add an OLED display to show scanned values in graphs. With the nRF24 module, we can scan and view the entire 2.4GHz network.
+
+- Arduino Nano
+- nRF24
+- Oled 0.96 SSD1306
+
+<!-- Schematic -->
+### :electric_plug: Schematic
+Make the connections according to the table and schematic below.
+
+* Arduino and nRF24.
+
+| Arduino| nRF24|  
+| ----   | -----|
+| 9  | CE   |
+| 13 | SCK  |
+| 12 | MISO |
+| 10 | CSN  |
+| 11 | MOSI |
+| 3V3 | Vcc |
+| GND | GND |
+
+
+* Arduino and OLED display.
+
+| Arduino| Oled 0.96|
+| ----   | -----|
+| A5  | SCK |
+| A4 | SDA  |
+| Vin | VDD |
+| GND | GND |
+
+ 
+* Complete Schematic
+
+<img src="https://user-images.githubusercontent.com/62047147/195948711-5e1dd386-0181-4160-b4cd-54e5fbc42589.jpg" alt="screenshot" width="800" height="auto" />
+
+
+<!-- Installation -->
+### :gear: Installation
+
+Before uploading the code you need to install the required library in Arduino IDE. Follow these steps:
+
+- Follow this path Sketch> Include Library> Manage Libraries
+- Search for Adafruit SSD1306
+- Install the library
+
+-Then search for the “GFX” and install it also.
+   
+<!-- Usage -->
+## :eyes: Usage
+
+After uploading the code, the network scanner starts working automatically and Show the Scanned Data in Graph.
+
+
+<!-- Contributing -->
+## :wave: Contributing
+
+<a href="https://github.com/cifertech/2.4-GHz-band-Scanner/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=cifertech/2.4-GHz-band-Scanner" />
+</a>
+
+
+<!-- License -->
+## :warning: License
+
+Distributed under the MIT License. See LICENSE.txt for more information.
+
+
+<!-- Contact -->
+## :handshake: Contact
+
+CiferTech - [@twitter](https://twitter.com/cifertech1) - CiferTech@gmali.com
+
+Project Link: [https://github.com/cifertech/2.4-GHz-band-Scanner](https://github.com/cifertech/2.4-GHz-band-Scanner)
+
+
